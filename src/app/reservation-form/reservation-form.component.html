@@ -1,0 +1,39 @@
+<app-home></app-home>
+<h5> Create a new reservation </h5>
+<form class = "center" [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+    <div class = "row mb-3">
+        <div class="col-sm-6">
+            <label class="form-label">Check-In Date</label>
+            <input class="form-control" type ="date" formControlName="checkInDate">
+            <small class="text-danger" *ngIf="reservationForm.get('checkInDate')?.invalid && reservationForm?.touched">Check-In date is mandatory.</small>
+        </div>
+        <div class="col-sm-6">
+            <label class="form-label">Check-Out Date</label>
+            <input class="form-control" type ="date" formControlName="checkOutDate">
+            <small class="text-danger" *ngIf="reservationForm.get('checkOutDate')?.invalid && reservationForm?.touched">Check-Out date is mandatory.</small>
+        </div>
+    </div>
+   
+    <div class = "row mb-3">
+        <div class="col-sm-6">
+            <label class="form-label">Guest Name</label>
+            <input class="form-control" type ="text" formControlName="guestName">
+            <small class="text-danger" *ngIf="reservationForm.get('guestName')?.invalid && reservationForm?.touched">Guest Name is mandatory.</small>
+        </div>
+        <div class="col-sm-6">
+            <label class="form-label">Guest Email</label>
+            <input class="form-control" type ="email" formControlName="guestEmail">
+            <small class="text-danger" *ngIf="reservationForm.get('guestEmail')?.invalid && reservationForm?.touched">Please provide valid email address.</small>
+        </div>
+    </div>
+    
+    <div class = "row mb-3">
+        <div class="col-sm-6">
+            <label class="form-label">Room Number</label>
+            <input class="form-control" type ="text" formControlName="roomNo">
+            <small class="text-danger" *ngIf="reservationForm.get('roomNo')?.invalid && reservationForm?.touched">Room No is mandatory.</small>
+        </div>
+    </div>
+    
+    <button class="btn btn-primary mt-2" type="submit" [disabled]="reservationForm.invalid">Submit</button>
+</form>

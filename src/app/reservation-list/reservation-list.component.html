@@ -1,0 +1,31 @@
+<app-home></app-home>
+
+<h5> Reservation List </h5>
+<div class = "container" *ngIf="reservations.length; else emptyList">
+    <table class = "table">
+        <thead>
+            <tr>
+                <th class="col">Guest</th>
+                <th class="col">Email</th>
+                <th class="col">Room No</th>
+                <th class="col">Check-In</th>
+                <th class="col">Check-Out</th>
+                <th class="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let res of reservations">
+                <td> {{res.guestName}} </td>
+                <td> {{res.guestEmail}} </td>
+                <td> {{res.roomNo}} </td>
+                <td> {{res.checkInDate}} </td>
+                <td> {{res.checkOutDate}} </td>
+                <td>
+                    <button class = "btn btn-sm btn-danger mx-1" (click)="onDelete(res.id)"> Delete </button>
+                    <button class = "btn btn-sm btn-secondary mx-1" [routerLink] = "['/edit', res.id]"> Edit </button>
+                </td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+<ng-template #emptyList>Currently, there are no reservations.</ng-template>
