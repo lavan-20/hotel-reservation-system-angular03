@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Reservation } from '../models/reservation';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +11,8 @@ export class ReservationService {
 
   reservations: Reservation[] = [];
 
+  /* With local storage
+  
   constructor(){
     var savedReservations = localStorage.getItem("reservations");
     this.reservations = savedReservations?JSON.parse(savedReservations):[];
@@ -39,5 +44,34 @@ export class ReservationService {
     console.log(index);
     this.reservations.splice(index, 1);
     localStorage.setItem("reservations",JSON.stringify(this.reservations));
+  }*/
+
+  //With mock API
+
+  apiBaseURL = "http://localhost:3001";
+
+  constructor(private client:HttpClient){
+    var savedReservations = localStorage.getItem("reservations");
+    this.reservations = savedReservations?JSON.parse(savedReservations):[];
+  }
+
+  getReservations():Observable<Reservation[]>{
+    return this.client.get<Reservation[]>(this.apiBaseURL + "/reservations");
+  }
+
+  getReservation(id:number): Observable<Reservation>{
+    return this.client.get<Reservation>(this.apiBaseURL+ "/reservation/" + id);
+  }
+
+  addReservation(res: Reservation): Observable<void>{
+    return this.client.post<void>(this.apiBaseURL+ "/reservation", res);
+  }
+
+  updateReservation(id: number, res:Reservation):Observable<void>{
+    return this.client.put<void>(this.apiBaseURL+ "/reservation/"+id, res);
+  }
+
+  deleteReservation(id:number):Observable<void>{
+    return this.client.delete<void>(this.apiBaseURL+ "/reservation/" + id);
   }
 }

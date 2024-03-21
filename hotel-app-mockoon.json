@@ -1,0 +1,224 @@
+{
+  "uuid": "74d98055-a188-496c-ad48-c3fd43975226",
+  "lastMigration": 32,
+  "name": "Hotel app",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "e56dbea5-207a-4430-a363-9c39ef2337fb",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "reservations",
+      "responses": [
+        {
+          "uuid": "a51cddc6-b3e3-4d4a-9281-5db4e9ed2258",
+          "body": "[\n  {\n    \"id\": 1,\n    \"guestName\": \"Lavanya\",\n    \"guestEmail\": \"test@test.com\",\n    \"checkInDate\": \"2024-10-24\",\n    \"checkOutDate\": \"2024-11-02\",\n    \"roomNo\":11\n  },\n  {\n    \"id\": 2,\n    \"guestName\": \"Vaish\",\n    \"guestEmail\": \"vaish@test.com\",\n    \"checkInDate\": \"2024-11-02\",\n    \"checkOutDate\": \"2024-11-09\",\n    \"roomNo\":24\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "List of all reservations",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "cc00baa2-39d9-4ed4-b632-34520541a7c6",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "reservation/:id",
+      "responses": [
+        {
+          "uuid": "ea3544f4-1dbd-45a8-9c46-e91d1b2a98b4",
+          "body": "{\n    \"id\": 1,\n    \"guestName\": \"Lavanya\",\n    \"guestEmail\": \"test@test.com\",\n    \"checkInDate\": \"2024-10-24\",\n    \"checkOutDate\": \"2024-11-02\",\n    \"roomNo\":11\n  }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get reservation based on ID",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "fb3b5ca2-33e4-4a3a-bf29-834cb2348c5d",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "reservation",
+      "responses": [
+        {
+          "uuid": "b5d309a1-86c2-4609-84c0-901d1e9a8718",
+          "body": "",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "Create new reservation",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "9933be1e-51b6-4982-8029-dd281b79c38e",
+      "type": "http",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "reservation/:id",
+      "responses": [
+        {
+          "uuid": "84d53c89-fab0-444b-845a-53488a0e7c14",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Edit a reservation",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "9cc1d529-ddaa-496e-9408-c07b455dae80",
+      "type": "http",
+      "documentation": "",
+      "method": "delete",
+      "endpoint": "reservation/:id",
+      "responses": [
+        {
+          "uuid": "ef71858a-df84-4e43-a992-9c51bac090c0",
+          "body": "",
+          "latency": 0,
+          "statusCode": 204,
+          "label": "Delete a reservation",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "e56dbea5-207a-4430-a363-9c39ef2337fb"
+    },
+    {
+      "type": "route",
+      "uuid": "cc00baa2-39d9-4ed4-b632-34520541a7c6"
+    },
+    {
+      "type": "route",
+      "uuid": "9933be1e-51b6-4982-8029-dd281b79c38e"
+    },
+    {
+      "type": "route",
+      "uuid": "fb3b5ca2-33e4-4a3a-bf29-834cb2348c5d"
+    },
+    {
+      "type": "route",
+      "uuid": "9cc1d529-ddaa-496e-9408-c07b455dae80"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}
